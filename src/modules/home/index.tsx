@@ -47,15 +47,20 @@ export default function HomePage() {
     liked_content_id: string
   ) => {
     try {
-      await axios.post("/api/proxy/like", {
-        id,
-        s_number,
-        liked_content_id,
-        liked_content_type: "photo",
-        headers: {
-          "x-auth-token": token,
+      await axios.post(
+        "/api/proxy/like",
+        {
+          id,
+          s_number,
+          liked_content_id,
+          liked_content_type: "photo",
         },
-      });
+        {
+          headers: {
+            "x-auth-token": token,
+          },
+        }
+      );
       alert(`Liked user with id: ${id}`);
     } catch (error) {
       console.error("Error liking user:", error);
@@ -153,8 +158,8 @@ export default function HomePage() {
           className="fixed inset-0 h-full bg-black bg-opacity-50 flex items-center justify-center z-50"
           onClick={closeModal}
         >
-          <div className=" h-full flex items-center rounded-lg">
-            <div className="h-4/5 relative">
+          <div className=" h-full  flex items-center rounded-lg">
+            <div className="relative">
               <button
                 onClick={closeModal}
                 className="absolute top-0 right-2 text-white bg-red-500 rounded-full p-2"
