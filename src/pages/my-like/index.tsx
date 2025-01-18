@@ -1,10 +1,10 @@
 import DefaultLayout from "@/layouts";
-import HomePage from "@/modules/home";
+import MyLikePage from "@/modules/myLike";
 
-export default function Home() {
+export default function MyLike() {
   return (
     <DefaultLayout>
-      <HomePage />
+      <MyLikePage />
     </DefaultLayout>
   );
 }
