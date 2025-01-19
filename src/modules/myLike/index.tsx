@@ -120,7 +120,7 @@ export default function MyLikePage() {
               {item?.user?.photos?.map((photo: any, index: number) =>
                 photo?.processedFiles[0]?.url ? (
                   <div key={index} className="pb-10">
-                    <Image
+                    <img
                       alt={`${item?.user?.name}'s photo`}
                       src={photo?.processedFiles[0]?.url}
                       width={photo?.processedFiles[0]?.width || 100}
@@ -163,7 +163,7 @@ export default function MyLikePage() {
               >
                 ✕
               </button>
-              <Image
+              <img
                 alt="Selected photo"
                 src={selectedPhoto}
                 width={500}

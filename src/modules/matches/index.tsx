@@ -38,32 +38,32 @@ export default function MatchesPage() {
     fetchData();
   }, []);
 
-   const handleLike = async (
-     id: string,
-     s_number: string,
-     liked_content_id: string
-   ) => {
-     try {
-       await axios.post(
-         "/api/proxy/like",
-         {
-           id,
-           s_number,
-           liked_content_id,
-           liked_content_type: "photo",
-         },
-         {
-           headers: {
-             "x-auth-token": token,
-           },
-         }
-       );
-       alert(`Liked user with id: ${id}`);
-     } catch (error) {
-       console.error("Error liking user:", error);
-       alert("Failed to like user");
-     }
-   };
+  const handleLike = async (
+    id: string,
+    s_number: string,
+    liked_content_id: string
+  ) => {
+    try {
+      await axios.post(
+        "/api/proxy/like",
+        {
+          id,
+          s_number,
+          liked_content_id,
+          liked_content_type: "photo",
+        },
+        {
+          headers: {
+            "x-auth-token": token,
+          },
+        }
+      );
+      alert(`Liked user with id: ${id}`);
+    } catch (error) {
+      console.error("Error liking user:", error);
+      alert("Failed to like user");
+    }
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -120,7 +120,7 @@ export default function MatchesPage() {
               {item?.person?.photos?.map((photo: any, index: number) =>
                 photo?.processedFiles[0]?.url ? (
                   <div key={index} className="pb-10">
-                    <Image
+                    <img
                       alt={`${item?.person?.name}'s photo`}
                       src={photo?.processedFiles[0]?.url}
                       width={photo?.processedFiles[0]?.width || 100}
@@ -163,7 +163,7 @@ export default function MatchesPage() {
               >
                 ✕
               </button>
-              <Image
+              <img
                 alt="Selected photo"
                 src={selectedPhoto}
                 width={500}
