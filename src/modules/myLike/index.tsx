@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { calculateAge } from "@/utils";
 import { useAuth } from "@/context/AuthContext";
-import Image from "next/image";
 
 export default function MyLikePage() {
   const [data, setData] = useState<any>(null);
